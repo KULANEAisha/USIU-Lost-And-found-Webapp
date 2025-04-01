@@ -106,5 +106,24 @@ app.post("/claim-item", (req, res) => {
     });
 });
 
+
+// Handle contact form submission
+app.post("/submit-contact", (req, res) => {
+    const { name, email, message } = req.body;
+  
+    if (!name || !email || !message) {
+      return res.status(400).json({ error: "All fields are required!" });
+    }
+  
+    const sql = "INSERT INTO contacts (name, email, message) VALUES (?, ?, ?)";
+    db.query(sql, [name, email, message], (err, result) => {
+      if (err) {
+        console.error("Error inserting data:", err);
+        return res.status(500).json({ error: "Database error" });
+      }
+      res.json({ success: true, message: "Message submitted successfully!" });
+    });
+  });
+
 // Start the server
 app.listen(3000, () => console.log("Server running on http://localhost:3000"));
