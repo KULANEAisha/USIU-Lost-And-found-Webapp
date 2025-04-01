@@ -20,18 +20,109 @@
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
+        <style>
+         body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 40px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            margin-top: 50px;
+        }
+        h1 {
+            text-align: center;
+            color: #003366;
+            margin-bottom: 20px;
+        }
+        .content {
+            text-align: justify;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+        .team-section {
+            margin-top: 30px;
+            text-align: center;
+        }
+        .team-section h2 {
+            color: #003366;
+        }
+        .team-members {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .team-member {
+            background: #eef2f3;
+            padding: 20px;
+            border-radius: 8px;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .team-member img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        .contact-section {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .contact-section a {
+            color: #003366;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
     </header>
 
-    <section class="contact-content">
-        <h1>About Us</h1>
-        <p>If you have any questions or need assistance, feel free to reach out to us.</p>
-        <p>Email: support@usiu-lostfound.com</p>
-        <p>Phone: +254-700-123-456</p>
-    </section>
-
-    <footer>
-        <p>Contact Us: support@usiu-lostfound.com | +254-700-123-456</p>
-        <p>© 2025 USIU Lost & Found System. All rights reserved.</p>
-    </footer>
-</body>
-</html>
+    <body>
+        <div class="container">
+            <h1>About Us</h1>
+            <div class="content">
+                <p>The <strong>USIU Lost & Found System</strong> is a trusted platform dedicated to reuniting students, faculty, and staff with their lost belongings. Our mission is to enhance campus security and convenience by providing an efficient and transparent process for reporting and retrieving lost items.</p>
+                <p>Through technology-driven solutions and a community-first approach, we ensure that every item is accounted for and returned in a timely manner. Our system is built to minimize losses and provide peace of mind to our university community.</p>
+            </div>
+            
+            <div class="team-section">
+                <h2>Meet Our Team</h2>
+                <div class="team-members">
+                    <div class="team-member">
+                        <img src="https://static.vecteezy.com/system/resources/thumbnails/035/360/351/small_2x/ai-generated-successful-american-african-business-man-looking-confident-and-smiling-generative-ai-photo.jpg" alt="John Doe">
+                        <h3>John Doe</h3>
+                        <p>Project Manager</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://imageio.forbes.com/specials-images/imageserve/612d245c146d817b6ef23946/0x0.jpg?format=jpg&height=900&width=1600&fit=bounds" alt="Jane Smith">
+                        <h3> Michael Brown</h3>
+                        <p>Lead Developer</p>
+                    </div>
+                    <div class="team-member">
+                        <img src="https://img.freepik.com/premium-photo/happy-crossed-arms-professional-black-woman-office-with-positive-good-confident-attitude-smile-smart-portrait-young-african-female-attorney-with-law-career-workplace_590464-262661.jpg" alt="Michael Brown">
+                        <h3>Jane Smith</h3>
+                        <p>Support Specialist</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-section">
+                <h2>Contact Us</h2>
+                <p>For any inquiries or support, please reach out to us at <a href="mailto:support@usiu-lostfound.com">support@usiu-lostfound.com</a></p>
+            </div>
+        </div>
+        <footer>
+            <p>© 2025 USIU Lost & Found System. All rights reserved.</p>
+        </footer>
+    </body>
+    </html>
