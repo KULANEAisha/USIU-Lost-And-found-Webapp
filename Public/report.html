@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - USIU Lost & Found System</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Additional styles specific to contact page */
+        .form-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-container h1 {
+            color: #003366;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .form-container p {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #555;
+        }
+        
+        .contact-form {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        label {
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #003366;
+        }
+        
+        input, textarea, select {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: #003366;
+            color: white;
+            border: none;
+            padding: 14px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+        
+        .submit-btn:hover {
+            background-color: #002244;
+        }
+        
+        .contact-info {
+            margin-top: 40px;
+            text-align: center;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .contact-info h2 {
+            color: #003366;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info p {
+            margin: 8px 0;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <header>
+        <div class="logo">
+            <img src="https://www.usiu.ac.ke/wp-content/uploads/2021/09/USIU-Logo.png" alt="USIU Logo" class="usiu-logo">
+            <span>USIU Lost & Found System</span>
+        </div>
+        <nav class="horizontal-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="report.html">Report Item</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contact Section -->
+    <section class="form-container">
+        <h1>Contact Us</h1>
+        <p>Have questions or need assistance? Reach out to our lost and found team.</p>
+
+        <form class="contact-form" id="contactForm">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">USIU Email Address</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <select id="subject" name="subject" required>
+                    <option value="">Select a subject</option>
+                    <option value="Lost Item">Lost Item Inquiry</option>
+                    <option value="Found Item">Found Item Report</option>
+                    <option value="Claim Item">Item Claim Inquiry</option>
+                    <option value="General">General Question</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required placeholder="Please provide details about your inquiry..."></textarea>
+            </div>
+            
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+
+        <div class="contact-info">
+            <h2>Alternative Contact Methods</h2>
+            <p><strong>Location:</strong> Security Office, Main Campus</p>
+            <p><strong>Email:</strong> lostandfound@usiu.ac.ke</p>
+            <p><strong>Phone:</strong> +254 730 116 000 (Ext. 222)</p>
+            <p><strong>Hours:</strong> Monday-Friday, 8:00 AM - 5:00 PM</p>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
