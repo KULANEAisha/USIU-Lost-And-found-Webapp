@@ -22,16 +22,180 @@
         </nav>
     </header>
 
-    <section class="contact-content">
-        <h1>Contact Us</h1>
-        <p>If you have any questions or need assistance, feel free to reach out to us.</p>
-        <p>Email: support@usiu-lostfound.com</p>
-        <p>Phone: +254-700-123-456</p>
-    </section>
+    <main>
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p class="intro-text">Need assistance with a lost or found item? Reach out to us using the form below or visit our security office.</p>
+
+            <div class="contact-container">
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <h3>Contact Information</h3>
+                    <p><strong>Location:</strong> Security Office, Main Campus</p>
+                    <p><strong>Email:</strong> lostandfound@usiu.ac.ke</p>
+                    <p><strong>Phone:</strong> +254 730 116 000 (Ext. 222)</p>
+                    <p><strong>Hours:</strong> Monday - Friday, 8:00 AM - 5:00 PM</p>
+                </div>
+
+                <!-- Contact Form -->
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="email">Your USIU Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required placeholder="Describe the lost/found item including details like color, brand, location, and date..."></textarea>
+                    </div>
+                
+                    <button type="submit" class="submit-btn">SUBMIT</button>
+                </form>
+                
+                <script>
+                document.getElementById("contactForm").addEventListener("submit", async function (event) {
+                    event.preventDefault();
+                
+                    const formData = {
+                        name: document.getElementById("name").value,
+                        email: document.getElementById("email").value,
+                        message: document.getElementById("message").value
+                    };
+                
+                    try {
+                        const response = await fetch("http://localhost:3000/submit-contact", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify(formData)
+                        });
+                
+                        const data = await response.json();
+                        alert(data.message);
+                        document.getElementById("contactForm").reset(); // Reset the form after submission
+                    } catch (error) {
+                        console.error("Error submitting form:", error);
+                        alert("Failed to submit the message. Please try again.");
+                    }
+                });
+                </script>
+                
+    </main>
 
     <footer>
-        <p>Contact Us: support@usiu-lostfound.com | +254-700-123-456</p>
         <p>© 2025 USIU Lost & Found System. All rights reserved.</p>
     </footer>
+
+    <style>
+        /* ... (keep existing body and header styles) ... */
+    
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 30px;
+        }
+    
+        h1 {
+            text-align: center;
+            color: #003366;
+            margin-bottom: 20px;
+        }
+    
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 30px;
+        }
+    
+        .contact-info {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+    
+        .contact-info h3 {
+            color: #003366;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+        }
+    
+        .contact-info p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+    
+        form#contactForm {
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        }
+    
+        .form-group {
+            margin-bottom: 20px;
+        }
+    
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #003366;
+        }
+    
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 16px;
+            transition: border-color 0.3s ease;
+        }
+    
+        input:focus, textarea:focus {
+            border-color: #003366;
+            outline: none;
+        }
+    
+        textarea {
+            height: 150px;
+            resize: vertical;
+        }
+    
+        .submit-btn {
+            background-color: #003366;
+            color: white;
+            padding: 14px 24px;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            font-weight: bold;
+        }
+    
+        .submit-btn:hover {
+            background-color: #002244;
+        }
+    
+        @media (max-width: 768px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+    
+            .container {
+                width: 95%;
+                padding: 20px;
+            }
+        }
+    </style>
+    
 </body>
 </html>
