@@ -1,0 +1,62 @@
+/* ===== BASE STYLES ===== */
+:root {
+    --usiu-blue: #00274d;
+    --usiu-yellow: #ffcc00;
+    --error-red: #ff4444;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: var(--usiu-blue);
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* ===== NAVBAR ===== */
+  header {
+    background-color: var(--usiu-blue);
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo img {
+    height: 40px;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  nav a {
+    color: var(--usiu-yellow);
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  /* ===== BUTTONS ===== */
+  .btn {
+    background-color: var(--usiu-yellow);
+    color: var(--usiu-blue);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .btn:hover {
+    background-color: #e6b800;
+  }
+  
+  /* ===== UTILITIES ===== */
+  .error-message {
+    color: var(--error-red);
+    font-size: 0.8rem;
+    margin-top: 5px;
+  }

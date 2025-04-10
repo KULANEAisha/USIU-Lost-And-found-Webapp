@@ -1,0 +1,52 @@
+/* ===== AUTH CONTAINER ===== */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+  }
+  
+  .auth-card {
+    background: white;
+    width: 100%;
+    max-width: 400px;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  /* ===== FORM STYLES ===== */
+  .form-group {
+    margin-bottom: 1rem;
+    text-align: left;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .form-group.error input {
+    border-color: var(--error-red);
+  }
+  
+  /* ===== FOOTER LINKS ===== */
+  .auth-footer {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .auth-footer a {
+    color: var(--usiu-blue);
+    font-weight: bold;
+  }

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Lost & Found Items | USIU</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/items.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="assets/logo1.png" alt="USIU Logo" class="usiu-logo">
+            <span>USIU Lost & Found System</span>
+        </div>
+        <nav class="horizontal-nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="items.html" class="active">Browse Items</a></li>
+                <li><a href="report.html">Report Item</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="items-container">
+        <h1>Lost & Found Items</h1>
+        <div class="filter-controls">
+            <select id="filterType">
+                <option value="all">All Items</option>
+                <option value="Lost">Lost Items</option>
+                <option value="Found">Found Items</option>
+            </select>
+            <input type="text" id="searchInput" placeholder="Search items...">
+        </div>
+
+        <div class="items-grid" id="itemsGrid">
+            <!-- Items will be loaded here by JavaScript -->
+            <div class="loading">Loading items...</div>
+        </div>
+    </main>
+
+    <script src="js/items.js"></script>
+</body>
+</html>

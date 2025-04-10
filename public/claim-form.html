@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claim Item</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/claim.css">
+
+    <!-- Navbar -->
+    <header>
+        <div class="logo">
+            <img src="https://th.bing.com/th/id/OIP.OupglgoiXkWupLUz6U4ixQAAAA?rs=1&pid=ImgDetMain" alt="USIU Logo" class="usiu-logo">
+            <span>USIU Lost & Found System</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="items.html" class="active">Browse Items</a></li>
+                <li><a href="report.html">Report Item</a></li>
+                <li><a href="claim-form.html">Claim Item</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <section class="form-container">
+        <h1>Claim Lost & Found Item</h1>
+        
+        <form id="claimForm">
+            <div class="form-group">
+                <label for="item_name">Item Name:</label>
+                <input type="text" id="item_name" name="item_name" readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="full_name">Your Full Name:</label>
+                <input type="text" id="full_name" name="full_name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="contact">Your Contact (Phone/Email):</label>
+                <input type="text" id="contact" name="contact" required>
+            </div>
+
+            <div class="form-group">
+                <label for="reason">Why do you believe this item is yours?</label>
+                <textarea id="reason" name="reason" rows="4" required></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Claim</button>
+        </form>
+    </section>
+
+    <script>
+        // Get item details from URL
+        const urlParams = new URLSearchParams(window.location.search);
+        document.getElementById("item_name").value = decodeURIComponent(urlParams.get("item_name") || "Unknown Item");
+
+        // Form submission
+        document.getElementById("claimForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Submitting...";
+
+            const claimData = {
+                item_id: urlParams.get("id"),
+                item_type: urlParams.get("type") === "lost" ? "Lost" : "Found",
+                full_name: document.getElementById("full_name").value,
+                contact: document.getElementById("contact").value,
+                reason: document.getElementById("reason").value
+            };
+
+            try {
+                const response = await fetch("/claim-item", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(claimData)
+                });
+
+                const data = await response.json();
+                
+                if (!response.ok) {
+                    throw new Error(data.error || "Failed to submit claim");
+                }
+
+                alert("Claim submitted successfully!");
+                window.location.href = "index.html";
+            } catch (error) {
+                console.error("Error:", error);
+                alert(error.message);
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = "Submit Claim";
+            }
+        });
+    </script>
+
+
+<script src="js/auth.js"></script>
+<script src="js/claim.js"></script>
+</body>
+</html>
